@@ -10,7 +10,7 @@ class Check extends Component {
 
   render() {
     return (
-      <div>
+      <div id="App-div">
         <h1>Calculator App</h1>
         <ButtonPanel />
         <Display />
