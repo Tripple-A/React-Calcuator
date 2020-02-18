@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import Display from './Display';
 import ButtonPanel from './ButtonPanel';
+import Display from './Display';
 
-
-class App extends Component {
+class Check extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -11,12 +10,13 @@ class App extends Component {
 
   render() {
     return (
-      <div id="App-div">
-        <Display />
+      <div>
+        <h1>Calculator App</h1>
         <ButtonPanel />
+        <Display />
       </div>
     );
   }
 }
 
-export default App;
+export default Check;
