@@ -11,9 +11,9 @@ This is a calculator built based on the JavaSCript Framework-React
 
 ### `Getting Started`
 Run these commands:
-git clone git@github.com:Tripple-A/React-Calcuator.git
-cd React-Calcuator
-npm install
+* git clone git@github.com:Tripple-A/React-Calcuator.git 
+* cd React-Calcuator
+* npm install
 
 ### `yarn start`
 
