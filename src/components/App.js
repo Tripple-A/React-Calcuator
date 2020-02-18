@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ButtonPanel from './ButtonPanel';
 import Display from './Display';
+import './index.css';
 
 class Check extends Component {
   constructor(props) {
@@ -11,9 +12,8 @@ class Check extends Component {
   render() {
     return (
       <div id="App-div">
-        <h1>Calculator App</h1>
-        <ButtonPanel />
         <Display />
+        <ButtonPanel />
       </div>
     );
   }

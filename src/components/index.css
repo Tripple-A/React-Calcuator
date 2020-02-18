@@ -1,0 +1,20 @@
+#App-div{
+    width:700px;
+    background-color: red;
+    display:flex;
+    flex-direction: column;
+}
+
+#Display-div{
+    height: 100px;
+    background-color: gray;
+    color: white;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 30px;
+}
+
+.group1{
+    height:100px;
+    display: flex;
+}
