@@ -19,4 +19,4 @@ const App = props => {
 };
 
 
-ReactDOM.render(<App name="Heroku" />, document.getElementById('root'))
+ReactDOM.render(<App name="Heroku" />, document.getElementById('root'));
