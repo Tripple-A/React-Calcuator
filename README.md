@@ -2,12 +2,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## React-Calculator
 This is a calculator built based on the JavaSCript Framework-React
-* IN this milestone,we initialize react on this repo and we also deploy the app to heroku before any deelopment starts.
-The live heroku link can be found[here](https://bioduncalc.herokuapp.com/)
 
-## Available Scripts
+### `Built with`
+* React
 
-In the project directory, you can run:
+### `Live Demo`
+* [Live Demo LInk](https://bioduncalc.herokuapp.com/)
+
+### `Getting Started`
+Run these commands:
+* git clone git@github.com:Tripple-A/React-Calcuator.git 
+* cd React-Calcuator
+* npm install
 
 ### `yarn start`
 
