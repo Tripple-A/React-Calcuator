@@ -1,37 +1,37 @@
 import React from 'react';
+import Button from './Button';
 
-const ButtonPanel = () => (
-  <div>
-    <div className="group1">
-      <button type="button"> AC </button>
-      <button type="button"> +/-</button>
-      <button type="button">  % </button>
-      <button type="button">  ÷ </button>
+const ButtonPanel = () => {
+  const items1 = ['AC', '+/-', '%'].map(item => <Button key={item} name={item} color="rgb(240, 241, 243)" />);
+  const items2 = ['7', '8', '9'].map(item => <Button key={item} name={item} color="rgb(240, 241, 243)" />);
+  const items3 = ['4', '5', '6'].map(item => <Button key={item} name={item} color="rgb(240, 241, 243)" />);
+  const items4 = ['1', '2', '3'].map(item => <Button key={item} name={item} color="rgb(240, 241, 243)" />);
+  const show = true
+  return (
+    <div>
+      <div className="group1">
+        {items1}
+        <Button name="÷" />
+      </div>
+      <div className="group1">
+        {items2}
+        <Button name="X" />
+      </div>
+      <div className="group1">
+        {items3}
+        <Button name="-" />
+      </div>
+      <div className="group1">
+        {items4}
+        <Button name="+" />
+      </div>
+      <div className="group1">
+        <Button name="0" wide={show} color="rgb(240, 241, 243)" />
+        <Button name="." color="rgb(240, 241, 243)" />
+        <Button name="=" />
+      </div>
     </div>
-    <div className="group1">
-      <button type="button"> 7 </button>
-      <button type="button"> 8 </button>
-      <button type="button"> 9 </button>
-      <button type="button"> X </button>
-    </div>
-    <div className="group1">
-      <button type="button"> 4 </button>
-      <button type="button"> 5</button>
-      <button type="button"> 6</button>
-      <button type="button"> - </button>
-    </div>
-    <div className="group1">
-      <button type="button"> 1 </button>
-      <button type="button"> 2</button>
-      <button type="button"> 3</button>
-      <button type="button"> + </button>
-    </div>
-    <div className="group1">
-      <button type="button"> 0 </button>
-      <button type="button"> . </button>
-      <button type="button"> = </button>
-    </div>
-  </div>
-);
+  );
+};
 
 export default ButtonPanel;

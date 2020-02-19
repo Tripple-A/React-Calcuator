@@ -1,0 +1,30 @@
+#App-div{
+    width:700px;
+    display:flex;
+    flex-direction: column;
+    margin: 0px auto;
+}
+
+#Display-div{
+    height: 100px;
+    background-color: gray;
+    color: white;
+    font-size: 16px;
+    font-weight: bolder;
+    text-align: right;
+    padding-right: 30px;
+}
+
+.group1{
+    height:100px;
+    display: flex;
+}
+
+.Btn{
+    width: 25%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    border:1px solid  #e2e2d6;
+}
