@@ -1,6 +1,6 @@
 const Big = require('big.js');
 
-const operate = (num1, num2, operator) => {
+const Operate = ((num1, num2, operator) => {
   switch (operator) {
     case '+':
       return Big(num1).plus(Big(num2));
@@ -10,9 +10,11 @@ const operate = (num1, num2, operator) => {
       return Big(num1).mul(Big(num2));
     case '%':
       return Big(num1).mod(Big(num2));
-    default:
+    case '÷':
       return Big(num1).div(Big(num2));
+    default:
+      return '';
   }
-};
+})();
 
-export default operate;
+export default Operate;
