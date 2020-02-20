@@ -19,10 +19,13 @@ class Check extends Component {
   }
 
   checkShow(buttonName) {
+    const ops = ['X', '-', '+', '÷'];
     let { typed } = this.state;
     if (buttonName === '.' && !typed[-1] !== '.') {
       this.setState({ typed: typed += buttonName });
-    } else if (buttonName !== '=' && buttonName !== 'AC' && buttonName !== '.' && buttonName !== '+/-') {
+    } else if (ops.includes(buttonName) && !ops.includes(typed[typed.length - 1])) {
+      this.setState({ typed: typed += buttonName });
+    } else if (buttonName !== '=' && buttonName !== 'AC' && buttonName !== '.' && buttonName !== '+/-' && !ops.includes(buttonName)) {
       this.setState({ typed: typed += buttonName });
     } else if (buttonName === 'AC') {
       this.setState({ typed: '' });

@@ -49,7 +49,7 @@ const Calculate = (data, buttonName) => {
     if (!operation && total) { next = null; operation = buttonName; }
   } else if (buttonName === '%') {
     if (total && next && !operation) {
-      total = Operate(next, total, buttonName).toString(); 
+      total = Operate(next, total, buttonName).toString();
       result = total;
     } else if (total && next && operation) {
       next = Operate(next, total, buttonName).toString();
