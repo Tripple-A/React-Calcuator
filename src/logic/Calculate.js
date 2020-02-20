@@ -24,6 +24,9 @@ const Calculate = (data, buttonName) => {
   } else if (buttonName === 'AC') {
     total = null;
     next = null;
+    console.log(result);
+    result = null;
+    console.log(result);
   } else if (buttonName === '.') {
     if (!next && !total) { total = '0.'; next = '0.'; } else if (!next && operation) {
       next = '0.';

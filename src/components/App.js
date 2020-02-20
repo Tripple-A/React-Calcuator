@@ -34,8 +34,7 @@ class Check extends Component {
     const {
       total, next, operation, result,
     } = Calculate(this.state, buttonName);
-    this.setState({ total, next, operation });
-    if (result) { this.setState({ result }); }
+    this.setState({ total, next, operation, result });
   }
 
 

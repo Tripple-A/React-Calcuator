@@ -5,7 +5,7 @@ const Operate = (num1, num2, operator) => {
 
   if (operator === '-') { return Big(num1).minus(Big(num2)); }
 
-  if (operator === '÷') { return num2 === 0 ? 'Infinity' : Big(num1).div(Big(num2)); }
+  if (operator === '÷') { return num2 === 0 ? 0 : Big(num1).div(Big(num2)); }
 
   if (operator === '%') { return Big(num1).div(Big(100)); }
 
