@@ -24,6 +24,7 @@ const Calculate = (data, buttonName) => {
     total = null;
     next = null;
     result = null;
+    operation = null;
   } else if (buttonName === '.') {
     if (!next && !total) { total = '0.'; next = '0.'; } else if (!next && operation) {
       next = '0.';
