@@ -25,7 +25,7 @@ class Check extends Component {
     } else if (buttonName !== '=' && buttonName !== 'AC' && buttonName !== '.' && buttonName !== '+/-') {
       this.setState({ typed: typed += buttonName });
     } else if (buttonName === 'AC') {
-      this.setState({ typed: typed = '' });
+      this.setState({ typed: '' });
     }
   }
 
