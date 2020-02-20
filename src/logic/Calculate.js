@@ -19,7 +19,7 @@ const Calculate = (data, buttonName) => {
     };
     total = Operate(newData.total, newData.next, operation).toFixed(2).toString();
     next = null;
-    operation = null;
+    operation = buttonName;
     result = total;
   } else if (buttonName === 'AC') {
     total = null;
