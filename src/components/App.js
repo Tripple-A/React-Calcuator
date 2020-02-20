@@ -12,33 +12,37 @@ class Check extends Component {
       next: null,
       operation: null,
       typed: '',
+      result: null
     };
   }
 
     checkShow = (buttonName) => {
-      if (buttonName == '.' && !this.state.typed[-1] != '.') {
-        this.setState({typed: this.state.typed += buttonName})
+      let {typed} = this.state;
+      if (buttonName === '.' && !this.state.typed[-1] !== '.') {
+        this.setState({typed: typed += buttonName})
       }
-      else if (buttonName != '=' && buttonName != 'AC' && buttonName != '.' && buttonName != '+/-') {
-      this.setState({typed: this.state.typed += buttonName})
+      else if (buttonName !== '=' && buttonName !== 'AC' && buttonName !== '.' && buttonName !== '+/-') {
+      this.setState({typed: typed += buttonName})
       }
-      else if (buttonName == 'AC') {
-        this.setState({typed: this.state.typed = ''})
+      else if (buttonName === 'AC') {
+        this.setState({typed: typed = ''})
       }
      
     }
 
     handleClick = (buttonName) => {
     this.checkShow(buttonName)
-    let { total, next, operation } = Calculate(this.state, buttonName)
+    let { total, next, operation, result } = Calculate(this.state, buttonName)
     this.setState({total, next, operation})
+    if (result) { this.setState({result}); }
+    
   }
 
 
   render() {
     return (
       <div id="App-div">
-        <Display result = {this.state.total} typed= {this.state.typed} />
+        <Display result = {this.state.result} typed= {this.state.typed} />
         <ButtonPanel clickHandler={this.handleClick} />
       </div>
     );
