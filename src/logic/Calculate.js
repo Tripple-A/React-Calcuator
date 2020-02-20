@@ -10,8 +10,7 @@ const Calculate = (data, buttonName) => {
     total *= (-1);
     next *= (-1);
     result = total.toString();
-  } else if ((buttonName === '=' && operation) || buttonName === '%' || (ops.includes(buttonName) && next && operation)) {
-    if (buttonName === '%') { operation = buttonName; }
+  } else if ((buttonName === '=' && operation) || (ops.includes(buttonName) && next && operation)) {
     const newData = {
       total: parseFloat(total),
       next: parseFloat(next),
@@ -19,8 +18,8 @@ const Calculate = (data, buttonName) => {
     };
     total = Operate(newData.total, newData.next, operation).toFixed(2).toString();
     next = null;
-    operation = buttonName;
     result = total;
+    operation = buttonName;
   } else if (buttonName === 'AC') {
     total = null;
     next = null;
@@ -38,14 +37,23 @@ const Calculate = (data, buttonName) => {
     if (!next && total) { next = buttonName; } else if (next && total && !operation) {
       total += buttonName;
       next += buttonName;
-    } else if (next && operation) {
-      next += buttonName;
+    } else if (!next && operation) {
+      next = buttonName;
     } else if (!next && !total) {
       next = buttonName;
       total = buttonName;
+    } else if (next && operation) {
+      next += buttonName;
     }
   } else if (ops.includes(buttonName)) {
     if (!operation && total) { next = null; operation = buttonName; }
+  } else if (buttonName === '%') {
+    if (total && next && !operation) {
+      total = Operate(next, total, buttonName).toString(); 
+      result = total;
+    } else if (total && next && operation) {
+      next = Operate(next, total, buttonName).toString();
+    }
   }
   return {
     total,
