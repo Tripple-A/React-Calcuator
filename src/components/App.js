@@ -12,37 +12,38 @@ class Check extends Component {
       next: null,
       operation: null,
       typed: '',
-      result: null
+      result: null,
     };
+    this.checkShow = this.checkShow.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-    checkShow = (buttonName) => {
-      let {typed} = this.state;
-      if (buttonName === '.' && !this.state.typed[-1] !== '.') {
-        this.setState({typed: typed += buttonName})
-      }
-      else if (buttonName !== '=' && buttonName !== 'AC' && buttonName !== '.' && buttonName !== '+/-') {
-      this.setState({typed: typed += buttonName})
-      }
-      else if (buttonName === 'AC') {
-        this.setState({typed: typed = ''})
-      }
-     
+  checkShow(buttonName) {
+    let { typed } = this.state;
+    if (buttonName === '.' && !typed[-1] !== '.') {
+      this.setState({ typed: typed += buttonName });
+    } else if (buttonName !== '=' && buttonName !== 'AC' && buttonName !== '.' && buttonName !== '+/-') {
+      this.setState({ typed: typed += buttonName });
+    } else if (buttonName === 'AC') {
+      this.setState({ typed: typed = '' });
     }
+  }
 
-    handleClick = (buttonName) => {
-    this.checkShow(buttonName)
-    let { total, next, operation, result } = Calculate(this.state, buttonName)
-    this.setState({total, next, operation})
-    if (result) { this.setState({result}); }
-    
+  handleClick(buttonName) {
+    this.checkShow(buttonName);
+    const {
+      total, next, operation, result,
+    } = Calculate(this.state, buttonName);
+    this.setState({ total, next, operation });
+    if (result) { this.setState({ result }); }
   }
 
 
   render() {
+    const { result, typed } = this.state;
     return (
       <div id="App-div">
-        <Display result = {this.state.result} typed= {this.state.typed} />
+        <Display result={result} typed={typed} />
         <ButtonPanel clickHandler={this.handleClick} />
       </div>
     );
