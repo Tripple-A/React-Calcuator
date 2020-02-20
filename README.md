@@ -7,7 +7,7 @@ This is a calculator built based on the JavaSCript Framework-React
 * React
 
 ### `Live Demo`
-* [Live Demo LInk](https://bioduncalc.herokuapp.com/)
+* [Live Demo LInk](https://bioduncaaddlc.herokuapp.com/)
 
 ### `Getting Started`
 Run these commands:
