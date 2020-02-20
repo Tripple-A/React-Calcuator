@@ -3,28 +3,34 @@ import Operate from './Operate';
 const Calculate = (data, buttonName) => {
   const nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
   const ops = ['X', '-', '+', '÷'];
-  let { total, next, operation } = data;
+  let {
+    total, next, operation, result,
+  } = data;
   if (buttonName === '+/-') {
     total *= (-1);
     next *= (-1);
-  } else if (buttonName === '=' || buttonName === '%' || (ops.includes(buttonName) && next && operation)) {
+    result = total.toString();
+  } else if ((buttonName === '=' && operation) || (ops.includes(buttonName) && next && operation)) {
     const newData = {
       total: parseFloat(total),
       next: parseFloat(next),
       operation,
     };
-    total = Operate(newData.total, newData.next, operation).toString();
+    total = Operate(newData.total, newData.next, operation).toFixed(2).toString();
     next = null;
-    operation = buttonName;
+    result = total;
+    if (buttonName !== '=') { operation = buttonName; } else { operation = null; }
   } else if (buttonName === 'AC') {
     total = null;
     next = null;
+    result = null;
+    operation = null;
   } else if (buttonName === '.') {
     if (!next && !total) { total = '0.'; next = '0.'; } else if (!next && operation) {
       next = '0.';
     } else if (operation && total && next) {
       next += buttonName;
-    } else {
+    } else if (!total.includes('.') && !next.includes('.')) {
       next += '.';
       total += '.';
     }
@@ -32,14 +38,29 @@ const Calculate = (data, buttonName) => {
     if (!next && total) { next = buttonName; } else if (next && total && !operation) {
       total += buttonName;
       next += buttonName;
+    } else if (!next && operation) {
+      next = buttonName;
+    } else if (!next && !total) {
+      next = buttonName;
+      total = buttonName;
     } else if (next && operation) {
       next += buttonName;
+    }
+  } else if (ops.includes(buttonName)) {
+    if (!operation && total) { next = null; operation = buttonName; }
+  } else if (buttonName === '%') {
+    if (total && next && !operation) {
+      total = Operate(next, total, buttonName).toString();
+      result = total;
+    } else if (total && next && operation) {
+      next = Operate(next, total, buttonName).toString();
     }
   }
   return {
     total,
     next,
     operation,
+    result,
   };
 };
 
