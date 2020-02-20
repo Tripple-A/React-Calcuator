@@ -7,15 +7,16 @@ const Calculate = (data, buttonName) => {
   if (buttonName === '+/-') {
     total *= (-1);
     next *= (-1);
-  } else if (buttonName === '=' || buttonName === '%' || (ops.includes(buttonName) && next && operation)) {
+  } else if ((buttonName === '=' && operation) || buttonName === '%' || (ops.includes(buttonName) && next && operation)) {
+    if (buttonName === '%') { operation = buttonName; }
     const newData = {
       total: parseFloat(total),
       next: parseFloat(next),
       operation,
     };
-    total = Operate(newData.total, newData.next, operation).toString();
+    total = Operate(newData.total, newData.next, operation).toFixed(2).toString();
     next = null;
-    operation = buttonName;
+    operation = null;
   } else if (buttonName === 'AC') {
     total = null;
     next = null;
@@ -24,7 +25,7 @@ const Calculate = (data, buttonName) => {
       next = '0.';
     } else if (operation && total && next) {
       next += buttonName;
-    } else {
+    } else if (!total.includes('.') && !next.includes('.')) {
       next += '.';
       total += '.';
     }
@@ -34,7 +35,12 @@ const Calculate = (data, buttonName) => {
       next += buttonName;
     } else if (next && operation) {
       next += buttonName;
+    } else if (!next && !total) {
+      next = buttonName;
+      total = buttonName;
     }
+  } else if (ops.includes(buttonName)) {
+    if (!operation && total) { next = null; operation = buttonName; }
   }
   return {
     total,
