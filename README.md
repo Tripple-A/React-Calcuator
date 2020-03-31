@@ -1,13 +1,13 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## React-Calculator
 This is a calculator built based on the JavaSCript Framework-React
 
 ### `Built with`
 * React
+* Windows
+* Love and Passion for Code
 
 ### `Live Demo`
-* [Live Demo LInk](https://bioduncalc.herokuapp.com/)
+* Find the app in it's [Live Demo LInk](https://bioduncalc.herokuapp.com/)
 
 ### `Getting Started`
 Run these commands:
@@ -53,27 +53,3 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
